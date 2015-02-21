@@ -22,7 +22,6 @@ Puzzle<T>::Puzzle( const vector<T> &vect[] ){
 	}
 }
 
-template<typename T>
 Puzzle<T>::~Puzzle(){
 	delete sudoku;
 }
