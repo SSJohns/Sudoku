@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include "puzzle.h"
+
+using namespace std;
+
+int main(int argc,char* argv[]) {
+	int sizeone;
+	string character;
+	int row, column,replace;
+	bool checking = false;	
+	
+	if(argc >= 2){
+		//Pass the given file and open it
+		Puzzle<int> Sudoku(argv[1],sizeone);
+		Sudoku.print();	
+	while(!checking){
+		cout << "Choose a rowXcolumn to replace: ";
+		cin >> row >> column;
+
+		cout << "What will you replace it with? ";
+		cin >> replace;
+
+		Sudoku.replace(row,column,replace);
+		checking = Sudoku.check();
+		Sudoku.print();	
+	}
+	}else{
+		cout << "Please enter a filename.";
+		cin >> character;
+		Puzzle<int> Sudoku(character,sizeone);
+		Sudoku.print();	
+	while(1){
+		cout << "Choose a rowXcolumn to replace: ";
+		cin >> row >> column;
+
+		cout << "What will you replace it with? ";
+		cin >> replace;
+
+		Sudoku.replace(row,column,replace);
+		checking = Sudoku.check();
+		Sudoku.print();	
+	}
+	}
+} 
+
